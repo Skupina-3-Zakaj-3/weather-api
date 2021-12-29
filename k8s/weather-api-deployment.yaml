@@ -15,18 +15,12 @@ spec:
       containers:
         - image: anzeha/weather-api
           name: weather-api
-#          env:
-#            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-#              value: jdbc:postgresql://surus.db.elephantsql.com/tethyexn
-#            - name: KUMULUZEE_DATASOURCES0_USERNAME
-#              value: tethyexn
-#            - name: KUMULUZEE_DATASOURCES0_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: pg-pass
-#                  key: KUMULUZEE_DATASOURCES0_PASSWORD_RV_REVIEW
-#            - name: KUMULUZEE_DATASOURCES0_POOL_MAX-SIZE
-#              value: "1"
+          env:
+            - name: APPPROPERTIES_WEATHERAPI_ACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: pg-pass
+                  key: APPPROPERTIES_WEATHERAPI_ACCESSKEY
           ports:
             - containerPort: 8085
               name: server
