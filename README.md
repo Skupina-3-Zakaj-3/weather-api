@@ -15,12 +15,12 @@ docker network create rso
 ## Run the container in network
 
 ```bash
-docker run -d -p 8085:8085 --name weather-api --network="rso" -e APPPROPERTIES_WEATHERAPI_ACCESSKEY=<API_KEY_FROM_RAPID_API> weather-api
+docker run -d -p 8086:8086 --name weather-api --network="rso" -e APPPROPERTIES_WEATHERAPI_ACCESSKEY=<API_KEY_FROM_RAPID_API> weather-api
 ```
 
 
 ## Run the container from Docker hub in network
 
 ```bash
-docker run -d -p 8085:8085 --name weather-api --network="rso" -e APPPROPERTIES_WEATHERAPI_ACCESSKEY=<API_KEY_FROM_RAPID_API> anzeha/weather-api:latest
+docker run -d -p 8086:8086 --name weather-api --network="rso" -e APPPROPERTIES_WEATHERAPI_ACCESSKEY=<API_KEY_FROM_RAPID_API> anzeha/weather-api:latest
 ```

@@ -6,7 +6,7 @@ WORKDIR /app
 
 ADD ./api/target/weather-api-1.0-SNAPSHOT.jar /app
 
-EXPOSE 8085
+EXPOSE 8086
 
 CMD ["java", "-jar", "weather-api-1.0-SNAPSHOT.jar"]
 #ENTRYPOINT ["java", "-jar", "image-review-api-1.0.0-SNAPSHOT.jar"]

@@ -4,9 +4,9 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8085
+    base-url: http://localhost:8086
     http:
-      port: 8085
+      port: 8086
 #  datasources:
 #    - jndi-name: jdbc/ImageMetadataDS
 #      connection-url: jdbc:postgresql://localhost:5432/image-metadata
@@ -44,7 +44,7 @@ kumuluzee:
   rest-client:
     registrations:
       - class: weather-api
-        url: http://localhost:8085/v1
+        url: http://localhost:8086/v1
         read-timeout: 5000
   streaming:
     kafka:
