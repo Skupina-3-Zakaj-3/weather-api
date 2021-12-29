@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rv-review-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-api
+  template:
+    metadata:
+      labels:
+        app: weather-api
+    spec:
+      containers:
+        - image: anzeha/weather-api
+          name: weather-api
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://surus.db.elephantsql.com/tethyexn
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: tethyexn
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pg-pass
+                  key: KUMULUZEE_DATASOURCES0_PASSWORD_RV_REVIEW
+            - name: KUMULUZEE_DATASOURCES0_POOL_MAX-SIZE
+              value: "1"
+          ports:
+            - containerPort: 8085
+              name: server
+              protocol: TCP
+         
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-api
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8085
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: weather-api
