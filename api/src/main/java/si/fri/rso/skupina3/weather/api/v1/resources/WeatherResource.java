@@ -31,7 +31,8 @@ import java.util.logging.Logger;
 @ApplicationScoped
 @Path("/weather")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, DELETE, OPTIONS")
 public class WeatherResource {
 
     private Logger log = Logger.getLogger(WeatherResource.class.getName());
