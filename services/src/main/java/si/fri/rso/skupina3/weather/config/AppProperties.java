@@ -9,7 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ConfigBundle("app-properties")
 public class AppProperties {
 
-    @ConfigValue("weather-api.access-key")
+    @ConfigValue(watch = true)
     private String weatherApiAccessKey;
 
     public String getWeatherApiAccessKey() {
