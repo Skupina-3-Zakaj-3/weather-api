@@ -7,6 +7,9 @@ kumuluzee:
     base-url: http://localhost:8086
     http:
       port: 8086
+  config:
+    consul:
+      agent: http://consul-server:8500
 #  datasources:
 #    - jndi-name: jdbc/ImageMetadataDS
 #      connection-url: jdbc:postgresql://localhost:5432/image-metadata
