@@ -27,7 +27,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.logging.Logger;
 
-
+@Log
 @ApplicationScoped
 @Path("/weather")
 @Produces(MediaType.APPLICATION_JSON)
